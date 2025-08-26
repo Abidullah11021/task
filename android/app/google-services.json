@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "535423821816",
+    "project_id": "taskapp-e746c",
+    "storage_bucket": "taskapp-e746c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535423821816:android:e21912b39ba12fa27f580d",
+        "android_client_info": {
+          "package_name": "com.test.task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535423821816-nj95or9gc8ogv9fs9l7b5qk10pb352s4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.test.task",
+            "certificate_hash": "f9376090a726f566627e07e8e4536eb95982127e"
+          }
+        },
+        {
+          "client_id": "535423821816-1g475ka05rmjltt2mbkc6okv6to67da4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx_ms_ojr-JE8P2dBVhOPHOWPh3hHPSnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535423821816-1g475ka05rmjltt2mbkc6okv6to67da4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "535423821816-n7vcqpqo3vjup6jbcnc2ab025ehfe9dk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.test.task"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
