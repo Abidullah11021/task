@@ -107,23 +107,38 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
 
                   30.hb,
-
+Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const AppText(text: "Already have an account? "),
+                      InkWell(
+                        onTap: () {
+                          GoRouter.of(context).push(RoutePaths.login);
+                        },
+                        child: AppText(
+                          text: "Login",
+                          color: R.colors.blue0000FF,
+                        ),
+                      ),
+                    ],
+                  ),
+                  150.hb,
                   /// Terms & Conditions
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Checkbox(
+                     
+                      AppText(
+                        text:
+                            "Agree to Terms & Conditions",
+                      ),
+                       Checkbox(
                         value: _agreedToTerms,
                         onChanged: (value) {
                           setState(() {
                             _agreedToTerms = value ?? false;
                           });
                         },
-                      ),
-                      Expanded(
-                        child: AppText(
-                          text:
-                              "By registering, you agree to our terms and conditions",
-                        ),
                       ),
                     ],
                   ),
@@ -151,22 +166,7 @@ class _RegisterViewState extends State<RegisterView> {
                   30.hb,
 
                   /// Already have account
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const AppText(text: "Already have an account? "),
-                      InkWell(
-                        onTap: () {
-                          GoRouter.of(context).push(RoutePaths.login);
-                        },
-                        child: AppText(
-                          text: "Login",
-                          color: R.colors.blue0000FF,
-                        ),
-                      ),
-                    ],
-                  ),
-                  50.hb,
+                  
                 ],
               ),
             ),
