@@ -64,6 +64,7 @@ class FirebaseHelperImpl implements NetworkCallHelper {
   Future<UserCredential> loginWithGoogle() async {
     try {
       // Trigger Google Sign In flow
+      await _googleSignIn.signOut();
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
       if (googleUser == null) {
@@ -92,7 +93,7 @@ class FirebaseHelperImpl implements NetworkCallHelper {
           message: e.message ?? 'Unknown Google login error');
     } catch (e) {
       logger.e('Google login failed: $e');
-      throw MessageException(message: e.toString());
+      throw MessageException(message: "Unknown Google login error");
     }
   }
 }

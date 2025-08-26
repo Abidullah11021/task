@@ -45,5 +45,33 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<!-- ✅ Google Sign-In URL Scheme -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- REVERSED_CLIENT_ID from GoogleService-Info.plist -->
+				<string>com.googleusercontent.apps.535423821816-n7vcqpqo3vjup6jbcnc2ab025ehfe9dk</string>
+			</array>
+		</dict>
+	</array>
+
+	<!-- ✅ Required for Google Sign-In -->
+	<key>GIDClientID</key>
+	<string>535423821816-n7vcqpqo3vjup6jbcnc2ab025ehfe9dk.apps.googleusercontent.com</string>
+
+	<!-- ✅ Allow Google app/Safari queries -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>google</string>
+		<string>com.google</string>
+		<string>com.google.chrome.ios</string>
+		<string>com.google.GPPShare</string>
+		<string>com.google.GPPShareExtension</string>
+	</array>
 </dict>
 </plist>

@@ -32,12 +32,13 @@ class _RegisterViewState extends State<RegisterView> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
+  bool _agreedToTerms = false; // ✅ Track checkbox state
+
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
-
     super.dispose();
   }
 
@@ -46,7 +47,6 @@ class _RegisterViewState extends State<RegisterView> {
       required String email,
       required String password}) async {
     try {
-      /// unfocus the keyboard
       FocusManager.instance.primaryFocus?.unfocus();
       loading(context);
       final registerUsecase = sl<RegisterUsecase>();
@@ -106,10 +106,51 @@ class _RegisterViewState extends State<RegisterView> {
                     },
                   ),
 
-                  /// Submit Button
                   30.hb,
 
-                  /// no accoutn register
+                  /// Terms & Conditions
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _agreedToTerms,
+                        onChanged: (value) {
+                          setState(() {
+                            _agreedToTerms = value ?? false;
+                          });
+                        },
+                      ),
+                      Expanded(
+                        child: AppText(
+                          text:
+                              "By registering, you agree to our terms and conditions",
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  20.hb,
+
+                  /// Submit Button
+                  AppFilledButton(
+                    text: "Register",
+                    onTap: () async {
+                      if (_formKey.currentState!.validate()) {
+                        if (!_agreedToTerms) {
+                          showToast(msg: "You must agree to Terms & Conditions");
+                          return;
+                        }
+                        registerUser(
+                          context: context,
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        );
+                      }
+                    },
+                  ),
+
+                  30.hb,
+
+                  /// Already have account
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -125,17 +166,6 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                     ],
                   ),
-                  100.hb,
-                  AppFilledButton(
-                      text: "Register",
-                      onTap: () async {
-                        if (_formKey.currentState!.validate()) {
-                          registerUser(
-                              context: context,
-                              email: _emailController.text,
-                              password: _passwordController.text);
-                        }
-                      }),
                   50.hb,
                 ],
               ),
